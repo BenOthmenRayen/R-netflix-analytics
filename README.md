@@ -30,58 +30,58 @@ d <-read_csv("netflix_users.csv")
 str(d)
 ```
 <img src="screenshots/1.png" width="30%" />  
-### Dataset Dimensions and Structure  
-```
+### Dataset Dimensions and Structure     
+```   
 dim(d)
+```   
+### Detailed Information on Dataset Columns        
+```   
+colnames(d)   
+sapply(d,class)  
+```   
+### Sample Data Display and Inspection    
+```   
+head(d)    
+tail(d)   
 ```
-### Detailed Information on Dataset Columns   
+### Count of Occurrences for Each Subscription Type   
 ```
-colnames(d)
-sapply(d,class)
+table(d$'subscription_type')   
 ```
-### Sample Data Display and Inspection
+### Count of Occurrences for Each Genre    
 ```
-head(d)
-tail(d)
+table(d$'gender')   
 ```
-### Count of Occurrences for Each Subscription Type
+### Visual Representation of Subscriber Distribution by Country    
+```   
+ggplot(d, aes(x=country))+   
+  geom_bar()+   
+  theme_minimal()   
 ```
-table(d$'subscription_type')
+### User Count by Subscription Type   
 ```
-### Count of Occurrences for Each Genre
+ggplot(d, aes(x=subscription_type))+   
+  geom_bar()+   
+  theme_minimal()   
 ```
-table(d$'gender')
-```
-### Visual Representation of Subscriber Distribution by Country
-```
-ggplot(d, aes(x=country))+
-  geom_bar()+
-  theme_minimal()
-```
-### User Count by Subscription Type
-```
-ggplot(d, aes(x=subscription_type))+
-  geom_bar()+
-  theme_minimal()
-```
-### Age Distribution Overview
-```
-hist(d$age , main="age distrubution",xlab="age")
-```
-### Age Distribution with Density Plot
-```
-ggplot(d, aes(x=age))+
-  geom_histogram(aes(y=..density..),binwidth=2,fill="skyblue", color="black")+
-  geom_density(color="red", size=1)+
-  theme_minimal()
-```
-### Boxplot Representation of Age Distribution
-### Age Distribution by Subscription Type
-### Device Distribution Represented by Pie Chart
-### Subscription Duration Distribution
-### Monthly Revenue Comparison by Gender
-### Comparison of Subscription Duration by Device Type
-### Graphical Representation of Subscriber Distribution by Country
+### Age Distribution Overview   
+```  
+hist(d$age , main="age distrubution",xlab="age")   
+```   
+### Age Distribution with Density Plot   
+```  
+ggplot(d, aes(x=age))+   
+  geom_histogram(aes(y=..density..),binwidth=2,fill="skyblue", color="black")+     
+  geom_density(color="red", size=1)+   
+  theme_minimal()   
+```   
+### Boxplot Representation of Age Distribution   
+### Age Distribution by Subscription Type   
+### Device Distribution Represented by Pie Chart   
+### Subscription Duration Distribution    
+### Monthly Revenue Comparison by Gender   
+### Comparison of Subscription Duration by Device Type   
+### Graphical Representation of Subscriber Distribution by Country    
 
 
 
