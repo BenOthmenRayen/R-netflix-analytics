@@ -16,7 +16,7 @@ The primary objective was to better understand viewing habits, user preferences,
 - `Fisher’s Exact Test`
 - `Chi-Square Test`
 ### to import libraries,we used the following command 
-```
+```r
 library(ggplot2)
 library(dplyr)
 library(corrplot)
@@ -24,32 +24,31 @@ library(GGally)
 library(tidyverse)
 ```
 ### To load the dataset into R
-```
+```r
 d <-read_csv("netflix_users.csv")
 ```
 ### General Overview of the Dataset  
-```
+```r
 str(d)
 ```
-<img src="screenshots/1.png" width="30%" />  
-
 ### Dataset Dimensions and Structure  
 ```r
 dim(d)
 ```
+<img src="screenshots/dimension.png" width="30%" />     
 
 ### Detailed Information on Dataset Columns  
 ```r
 colnames(d)
 sapply(d, class)
 ```
-
+<img src="screenshots/information sur les colonnes.png" width="100%" />    
 ### Sample Data Display and Inspection  
 ```r
 head(d)
 tail(d)
-```
-
+```    
+<img src="screenshots/displaying the first and the last 6 rows.png" width="30%" />      
 ### Count of Occurrences for Each Subscription Type  
 ```r
 table(d$subscription_type)
