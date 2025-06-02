@@ -145,7 +145,7 @@ finding_outliers<- function(data, variable_name) {
 **Correlation**   
 measures the strength and direction of the linear relationship between two variables. It helps determine whether changes in one variable are associated with changes in another.   
 ```r
-ggplot(d, aes(x = age, y = subscription_duration)) +   
+ggplot(d, aes(x = age, y = subscribed_duration)) +   
   geom_point(alpha=0.6) +
   theme_minimal()
 ```
@@ -169,7 +169,41 @@ cor(d$monthly_revenue, d$start_month)
 ```
 **Conclusion:**    
 The correlation between monthly revenue and subscription start month is very weak (r = 0.012).
-The p-value (0.5487) indicates that this correlation is not statistically significant.   
+The p-value (0.5487) indicates that this correlation is not statistically significant.    
+### Correlation Between Customer Lifetime Value (CLV) and Subscription Duration    
+```r   
+cor(d$CLV, d$subscribed_duration)   
+```
+**Conclusion:**    
+Conclusion:
+The correlation coefficient (r = 0.93) shows a very strong positive relationship between subscription duration and CLV.
+With a p-value < 2.2e-16, this correlation is statistically highly significant.    
+###  Correlation Coefficient Heatmap   
+A correlation heatmap visually displays the strength and direction of relationships between multiple numerical variables using color gradients. It helps quickly identify strong positive or negative correlations within the dataset.     
+```r   
+# Calculate correlation matrix (numeric columns only)   
+cor_matrix <- cor(d[sapply(d, is.numeric)], use = "complete.obs")   
+   
+# Plot heatmap   
+corrplot(cor_matrix, method = "color", type = "upper",    
+         tl.col = "black", tl.srt = 45,      
+         addCoef.col = "black", number.cex = 0.7)     
+```
+
+### Fisher’s Exact Test on Country vs Subscription Type   
+Fisher’s Exact Test is used for analyzing the association between two categorical variables in a 2x2 contingency table, especially when sample sizes are small. It helps determine if there is a statistically significant relationship between country and subscription type.   
+
+
+**Conclusion:**   
+The confidence interval [0.8424; 1.7138] includes 1, and the odds ratio (1.2) suggests only a slight tendency for users from certain countries to choose specific subscription types. However, this difference is not statistically significant, indicating no meaningful effect of country on subscription choice.    
+###  Chi-Square Test of Independence on Gender vs Subscription Type    
+The Chi-Square test examines whether two categorical variables are independent. It assesses if the subscription type depends on the user’s gender.    
+
+
+**Conclusion:**   
+With a high p-value (0.7304), there is no significant association between gender and subscription type. Statistically, a user’s gender does not influence their choice of subscription.    
+
+
 
  
 
