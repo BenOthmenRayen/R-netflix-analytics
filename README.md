@@ -75,13 +75,50 @@ ggplot(d, aes(x=age))+
   geom_density(color="red", size=1)+   
   theme_minimal()   
 ```   
-### Boxplot Representation of Age Distribution   
-### Age Distribution by Subscription Type   
-### Device Distribution Represented by Pie Chart   
-### Subscription Duration Distribution    
-### Monthly Revenue Comparison by Gender   
+### Boxplot Representation of Age Distribution  
+```
+ggplot(d, aes(y = age)) +
+  geom_boxplot() +
+  theme_minimal()
+```
+### Age Distribution by Subscription Type 
+```
+ggplot(d, aes(x = subscription_type, y = age)) +
+  geom_boxplot() +
+  theme_minimal()
+```
+### Device Distribution Represented by Pie Chart 
+```
+library(dplyr)
+device_counts <- d %>% count(device_type)
+ggplot(device_counts, aes(x = "", y = n, fill = device_type)) +
+  geom_col(width = 1) +
+  coord_polar(theta = "y") +
+  theme_void() +
+  labs(fill = "Device Type")
+```
+### Subscription Duration Distribution 
+```
+hist(d$subscription_duration, main = "Subscription Duration Distribution", xlab = "Duration (days)")
+```
+### Monthly Revenue Comparison by Gender 
+```
+ggplot(d, aes(x = gender, y = monthly_revenue)) +
+  geom_boxplot() +
+  theme_minimal()
+```
 ### Comparison of Subscription Duration by Device Type   
-### Graphical Representation of Subscriber Distribution by Country    
+```
+ggplot(d, aes(x = device_type, y = subscription_duration)) +
+  geom_boxplot() +
+  theme_minimal()
+```
+### Graphical Representation of Subscriber Distribution by Country 
+```
+ggplot(d, aes(x = country)) +
+  geom_bar() +
+  theme_minimal()
+```
 
 
 
