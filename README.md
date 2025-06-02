@@ -35,7 +35,7 @@ str(d)
 ```r
 dim(d)
 ```
-<img src="screenshots/dimension.png" width="30%" />     
+<img src="screenshots/dimension .png" width="30%" />            
 
 ### Detailed Information on Dataset Columns  
 ```r
@@ -43,41 +43,44 @@ colnames(d)
 sapply(d, class)
 ```
 <img src="screenshots/information sur les colonnes.png" width="100%" />    
-### Sample Data Display and Inspection  
-```r
-head(d)
-tail(d)
-```    
-<img src="screenshots/displaying the first and the last 6 rows.png" width="30%" />      
-### Count of Occurrences for Each Subscription Type  
-```r
-table(d$subscription_type)
-```
 
-### Count of Occurrences for Each Gender  
+### Sample Data Display and Inspection       
+                   
+```r       
+head(d)       
+tail(d)      
+```                   
+<img src="screenshots/displaying the first and the last 6 rows .png" width="100%" />       
+   
+### Count of Occurrences for Each subscribed_type      
+```r      
+table(d$subscription_type)      
+```       
+<img src="screenshots/counting the occurrences of each subscription_types.png" width="100%" />         
+### Count of Occurrences for Each Gender      
 ```r
 table(d$gender)
 ```
-
+ <img src="screenshots/the occurences of each genders.png" width="100%" />   
 ### Visual Representation of Subscriber Distribution by Country  
 ```r
 ggplot(d, aes(x = country)) +
   geom_bar() +
   theme_minimal()
 ```
-
-### User Count by Subscription Type  
+ <img src="screenshots/1.png" width="100%" />        
+### User Count by Subscription Type     
 ```r
 ggplot(d, aes(x = subscription_type)) +
   geom_bar() +
   theme_minimal()
-```
-
+```    
+<img src="screenshots/2.png" width="100%" />    
 ### Age Distribution Overview  
 ```r
 hist(d$age, main = "Age Distribution", xlab = "Age")
 ```
-
+<img src="screenshots/3.png" width="100%" />    
 ### Age Distribution with Density Plot  
 ```r
 ggplot(d, aes(x = age)) +
@@ -85,21 +88,21 @@ ggplot(d, aes(x = age)) +
   geom_density(color = "red", size = 1) +
   theme_minimal()
 ```
-
+<img src="screenshots/33.png" width="100%" />    
 ### Boxplot Representation of Age Distribution  
 ```r
 ggplot(d, aes(y = age)) +
   geom_boxplot() +
   theme_minimal()
 ```
-
+<img src="screenshots/4.png" width="100%" />   
 ### Age Distribution by Subscription Type  
 ```r
 ggplot(d, aes(x = subscription_type, y = age)) +
   geom_boxplot() +
   theme_minimal()
 ```
-
+<img src="screenshots/5.png" width="100%" />     
 ### Device Distribution Represented by Pie Chart  
 ```r
 device_counts <- d %>% count(device)
@@ -110,25 +113,26 @@ ggplot(device_counts, aes(x = "", y = n, fill = device)) +
   theme_void() +
   labs(fill = "Device")
 ```
-
+<img src="screenshots/6.png" width="100%" />   
 ### Subscription Duration Distribution  
 ```r
 hist(d$subscribed_duration, main = "Subscription Duration Distribution", xlab = "Duration (days)")
 ```
-
+<img src="screenshots/7.png" width="100%" />    
 ### Monthly Revenue Comparison by Gender  
 ```r
 ggplot(d, aes(x = gender, y = monthly_revenue)) +
   geom_boxplot() +
   theme_minimal()
 ```
-
+<img src="screenshots/9.png" width="100%" />      
 ### Comparison of Subscription Duration by Device Type  
 ```r
 ggplot(d, aes(x = device, y = subscription_duration)) +
   geom_boxplot() +
   theme_minimal()
 ```
+<img src="screenshots/10.png" width="100%" />   
 ### Outliers 
 are unusual values that differ greatly from most other data points. They can affect analysis results and may need to be removed or treated separately.   
 ```r
