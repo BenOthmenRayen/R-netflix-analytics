@@ -13,6 +13,8 @@ The primary objective was to better understand viewing habits, user preferences,
 - `corrplot` for visualizing correlation matrices
 - `GGally` for multivariate analysis
 - `tidyverse` meta-package ,for data science
+- `Fisher’s Exact Test`
+- `Chi-Square Test`
 ### to import libraries,we used the following command 
 ```
 library(ggplot2)
