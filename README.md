@@ -246,7 +246,7 @@ corrplot(cor_matrix, method = "color", type = "upper",
 ### Fisher’s Exact Test on Country vs Subscription Type    
    
 Fisher’s Exact Test is used for analyzing the association between two categorical variables in a 2x2 contingency table, especially when sample sizes are small. It helps determine if there is a statistically significant relationship between country and subscription type.        
-<img src="screenshots/testficher.png" width="100%" />    
+<img src="screenshots/testficher.png" width="100%" height="60%" />    
     
 **Conclusion:**   
 The confidence interval [0.8424; 1.7138] includes 1, and the odds ratio (1.2) suggests only a slight tendency for users from certain countries to choose specific subscription types. However, this difference is not statistically significant, indicating no meaningful effect of country on subscription choice.    
@@ -254,8 +254,8 @@ The confidence interval [0.8424; 1.7138] includes 1, and the odds ratio (1.2) su
 ### Chi-Square Test of Independence on Gender vs Subscription Type    
    
 The Chi-Square test examines whether two categorical variables are independent. It assesses if the subscription type depends on the user’s gender.       
-<img src="screenshots/table2.png" width="100%" />    
-<img src="screenshots/khi2_2.png" width="100%" />    
+<img src="screenshots/table2.png" width="100%" height="60%" />    
+<img src="screenshots/khi2_2.png" width="100%" height="60%"/>    
     
 **Conclusion:**   
 With a high p-value (0.7304), there is no significant association between gender and subscription type. Statistically, a user’s gender does not influence their choice of subscription.    
