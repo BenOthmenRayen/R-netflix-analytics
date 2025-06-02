@@ -31,6 +31,8 @@ d <-read_csv("netflix_users.csv")
 ```r
 str(d)
 ```
+<img src="screenshots/information générales sur le dataset.png" width="100%" />    
+    
 ### Dataset Dimensions and Structure  
 ```r
 dim(d)
@@ -63,7 +65,8 @@ table(d$subscription_type)
 ```r
 table(d$gender)
 ```
- <img src="screenshots/the occurences of each genders.png" width="30%" />      
+<img src="screenshots/the occurences of each genders.png" width="30%" />      
+       
 ### Visual Representation of Subscriber Distribution by Country    
   
 ```r   
@@ -80,11 +83,13 @@ ggplot(d, aes(x = subscription_type)) +
   geom_bar() +
   theme_minimal()
 ```       
-<img src="screenshots/2.png" width="100%" />        
-### Age Distribution Overview      
+<img src="screenshots/2.png" width="100%" />     
+    
+### Age Distribution Overview    
+    
 ```r   
 hist(d$age, main = "Age Distribution", xlab = "Age")
-```
+```    
 <img src="screenshots/3.png" width="100%" />   
    
 ### Age Distribution with Density Plot   
@@ -133,22 +138,28 @@ ggplot(device_counts, aes(x = "", y = n, fill = device)) +
 ```r    
 hist(d$subscribed_duration, main = "Subscription Duration Distribution", xlab = "Duration (days)")
 ```   
-<img src="screenshots/7.png" width="100%" />        
-### Monthly Revenue Comparison by Gender      
+<img src="screenshots/7.png" width="100%" />  
+   
+### Monthly Revenue Comparison by Gender     
+    
 ```r   
 ggplot(d, aes(x = gender, y = monthly_revenue)) +
   geom_boxplot() +
   theme_minimal()
 ```    
-<img src="screenshots/9.png" width="100%" />         
-### Comparison of Subscription Duration by Device Type      
+<img src="screenshots/9.png" width="100%" />    
+   
+### Comparison of Subscription Duration by Device    
+    
 ```r    
 ggplot(d, aes(x = device, y = subscription_duration)) +
   geom_boxplot() +
   theme_minimal()
 ```    
-<img src="screenshots/10.png" width="100%" />        
-### Outliers    
+<img src="screenshots/10.png" width="100%" />     
+   
+### Outliers   
+   
 are unusual values that differ greatly from most other data points. They can affect analysis results and may need to be removed or treated separately.   
 ```r
 finding_outliers<- function(data, variable_name) {
@@ -160,11 +171,12 @@ finding_outliers<- function(data, variable_name) {
    outlier <- data[data[variable_name] < lower | data[variable_name] > upper, ]
    return(outliers)
 ```
-**Examples**  
-
-<img src="screenshots/excemples outliers.png" width="100%" />    
+    
+**Examples**    
    
-### Correlation Analysis Between Age and Subscription Duration   
+<img src="screenshots/excemples outliers.png" width="100%" />    
+       
+### Correlation Analysis Between Age and Subscription Duration      
    
 **Correlation**   
 measures the strength and direction of the linear relationship between two variables. It helps determine whether changes in one variable are associated with changes in another.       
@@ -211,8 +223,8 @@ The p-value (0.5487) indicates that this correlation is not statistically signif
 cor(d$CLV, d$subscribed_duration)   
 ```
 <img src="screenshots/cor55.png" width="100%" />    
-**Conclusion:**         
    
+**Conclusion:**             
 The correlation coefficient (r = 0.93) shows a very strong positive relationship between subscription duration and CLV.
 With a p-value < 2.2e-16, this correlation is statistically highly significant.     
    
